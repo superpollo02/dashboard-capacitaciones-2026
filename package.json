@@ -1,0 +1,19 @@
+{
+  "name": "dashboard-capacitaciones-2026",
+  "version": "1.0.0",
+  "description": "Dashboard de Capacitaciones 2026 - Ministerio de Salud y Deportes",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -s . -l 3000",
+    "dev": "npx serve -s . -l 3000"
+  },
+  "keywords": [
+    "dashboard",
+    "capacitaciones",
+    "salud",
+    "mendoza",
+    "chartjs"
+  ],
+  "author": "Ministerio de Salud y Deportes",
+  "license": "UNLICENSED"
+}
