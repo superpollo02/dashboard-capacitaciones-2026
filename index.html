@@ -139,9 +139,11 @@ body.hc .kpi-card, body.hc .chart-container, body.hc .table-section { box-shadow
     </div>
   </header>
 
-  <div class="data-tools" id="drop-zone">
-    <input type="file" id="file-input" accept=".xlsx, .xls, .xlsm, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, *">
-    <button class="btn primary" id="btn-upload">📂 Adjuntar archivo Excel (.xls / .xlsx)</button>
+  <div class="data-tools" id="drop-zone" style="border: 2px dashed transparent; border-radius: var(--radius); padding: 4px; transition: border-color .2s;">
+    <input type="file" id="file-input" accept=".xlsx, .xls, .xlsm, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, *" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">
+    <label for="file-input" class="btn primary" id="btn-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+      📂 Adjuntar archivo Excel (.xls / .xlsx)
+    </label>
     <button class="btn" id="btn-download-json" style="display:none;" title="Descargar datos en formato JSON para actualizar el repositorio de GitHub">💾 Descargar capacitaciones.json</button>
     <button class="btn" id="btn-export-pdf">🖨️ Exportar informe PDF (A4 apaisado)</button>
     <span class="status" id="data-status">Cargando datos...</span>
@@ -283,8 +285,6 @@ const DATA_RAW = JSON.parse(document.getElementById('data-holder').textContent);
 const HOY = new Date('2026-09-25T00:00:00');
 document.getElementById('hoy-label').textContent = HOY.toLocaleDateString('es-AR');
 
-
-
 function addSituacion(records){
   return records.map(d => {
     let situacion = 'Sin fecha';
@@ -303,8 +303,6 @@ const MODALIDAD_COLORS = { 'Presencial':'#0B109F', 'Virtual':'#36B4E6', 'Híbrid
 const MESES_LABEL = {'01':'Ene','02':'Feb','03':'Mar','04':'Abr','05':'May','06':'Jun','07':'Jul','08':'Ago','09':'Sep','10':'Oct','11':'Nov','12':'Dic'};
 
 function fmtNum(v){ if (v===null||v===undefined||isNaN(v)) return '0'; return Math.round(v).toLocaleString('es-AR'); }
-
-
 
 function s(v){ return v===null||v===undefined ? '' : String(v).trim(); }
 function titleCase(v){ return v.replace(/\S+/g, t => t.charAt(0).toUpperCase()+t.slice(1).toLowerCase()); }
@@ -480,6 +478,87 @@ function findHeaderRow(rows){
   return { headerIndex: 0, header: rows[0] || [] };
 }
 
+function parseHomogeneizadoSheet(header, rows){
+  const col = {
+    organismo: findCol(header, 'organismo (normalizado)', 'organismo'),
+    instancia: findCol(header, 'instancia de formacion', 'instancia'),
+    tipo: findCol(header, 'tipo de instancia', 'tipo'),
+    temporalidad: findCol(header, 'temporalidad'),
+    fecha: findCol(header, 'fecha inicio', 'fecha'),
+    modalidad: findCol(header, 'modalidad'),
+    lugar: findCol(header, 'lugar', 'sede'),
+    duracion: findCol(header, 'duracion', 'horas', 'hs'),
+    dirigido: findCol(header, 'dirigido a', 'destinatarios'),
+    cupos: findCol(header, 'cupos', 'inscriptos'),
+    estado: findCol(header, 'estado'),
+    pendiente: findCol(header, 'pendiente', 'asistencia')
+  };
+  const records = [];
+  for (let r=1; r<rows.length; r++){
+    const row = rows[r];
+    if (!row || row.every(c=>c===null||c==='')) continue;
+    const fechaISO = excelDateToISO(row[col.fecha]);
+    const dirigidoTxt = col.dirigido>=0 ? (row[col.dirigido]||'') : '';
+    records.push({
+      organismo: (col.organismo>=0 && row[col.organismo]) || 'Sin dato',
+      instancia: (col.instancia>=0 && row[col.instancia]) || 'Sin nombre',
+      tipo: (col.tipo>=0 && row[col.tipo]) || 'Sin dato',
+      temporalidad: col.temporalidad>=0 ? (row[col.temporalidad]||'Sin dato') : 'Sin dato',
+      fecha: fechaISO, mes: fechaISO ? fechaISO.slice(0,7) : null,
+      modalidad: (col.modalidad>=0 && row[col.modalidad]) || 'Sin dato',
+      lugar: col.lugar>=0 ? (row[col.lugar]||'') : '',
+      duracion: numOrNull(row[col.duracion]),
+      dirigido_a: dirigidoTxt, dirigido_cat: classificarDirigido(dirigidoTxt),
+      cupos: numOrNull(row[col.cupos]),
+      estado: col.estado>=0 ? (row[col.estado]||'Sin dato') : 'Sin dato',
+      pendiente_asistencia: col.pendiente>=0 ? (row[col.pendiente]||'No') : 'No'
+    });
+  }
+  return records;
+}
+
+function parseCrudaSheet(header, rows){
+  const col = {
+    organismo: findCol(header, 'organismo responsable', 'organismo', 'dependencia', 'area', 'servicio', 'institucion'),
+    estado: findCol(header, 'estado', 'condicion', 'situacion administrativa'),
+    instancia: findCol(header, 'instancia de formacion', 'instancia', 'actividad', 'nombre', 'tema', 'curso', 'taller'),
+    tipo: findCol(header, 'taller', 'tipo', 'tipo de instancia', 'tipo de capacitacion'),
+    temporalidad: findCol(header, 'temporalidad', 'frecuencia'),
+    fecha: findCol(header, 'fecha inicio', 'fecha de inicio', 'fecha', 'inicio'),
+    modalidad: findCol(header, 'modalidad', 'formato'),
+    lugar: findCol(header, 'lugar / sede', 'lugar', 'sede'),
+    duracion: findCol(header, 'duracion (hs)', 'duracion', 'carga horaria', 'horas', 'hs'),
+    dirigido: findCol(header, 'dirigido a', 'destinatarios', 'destinatario', 'publico objetivo'),
+    cupos: findCol(header, 'cupos / inscriptos', 'cupos', 'inscriptos', 'vacantes'),
+    asistentes: findCol(header, 'cantidad de asistentes', 'asistentes'),
+    aprobados: findCol(header, 'cantidad de aprobados', 'aprobados')
+  };
+  const records = [];
+  for (let r=1; r<rows.length; r++){
+    const row = rows[r];
+    if (!row || row.every(c=>c===null||c==='')) continue;
+    const fechaISO = normFechaRaw(col.fecha>=0 ? row[col.fecha] : null);
+    const dirigidoTxt = col.dirigido>=0 ? (row[col.dirigido]||'') : '';
+    const asistTxt = col.asistentes>=0 ? s(row[col.asistentes]) : '';
+    const aprobTxt = col.aprobados>=0 ? s(row[col.aprobados]) : '';
+    records.push({
+      organismo: normOrganismo(col.organismo>=0 ? row[col.organismo] : ''),
+      instancia: (col.instancia>=0 && s(row[col.instancia])) || 'Sin nombre',
+      tipo: normTipo(col.tipo>=0 ? row[col.tipo] : ''),
+      temporalidad: normTemporalidad(col.temporalidad>=0 ? row[col.temporalidad] : ''),
+      fecha: fechaISO, mes: fechaISO ? fechaISO.slice(0,7) : null,
+      modalidad: normModalidad(col.modalidad>=0 ? row[col.modalidad] : ''),
+      lugar: col.lugar>=0 ? (row[col.lugar]||'') : '',
+      duracion: normDuracionRaw(col.duracion>=0 ? row[col.duracion] : null),
+      dirigido_a: dirigidoTxt, dirigido_cat: classificarDirigido(dirigidoTxt),
+      cupos: normCuposRaw(col.cupos>=0 ? row[col.cupos] : null),
+      estado: normEstado(col.estado>=0 ? row[col.estado] : ''),
+      pendiente_asistencia: (!asistTxt && !aprobTxt) ? 'Sí' : 'No'
+    });
+  }
+  return records;
+}
+
 function parseWorkbookToRecords(wb){
   for (const name of wb.SheetNames){
     const sheet = wb.Sheets[name];
@@ -490,7 +569,7 @@ function parseWorkbookToRecords(wb){
     const { headerIndex, header } = findHeaderRow(rows);
     const dataRows = rows.slice(headerIndex);
 
-    // Revisar si tiene formato crudo
+    // 1) Intentar formato crudo
     const colOrg = findCol(header, 'organismo responsable', 'organismo', 'dependencia', 'area', 'servicio', 'institucion');
     const colInst = findCol(header, 'instancia de formacion', 'instancia', 'actividad', 'nombre', 'tema', 'curso', 'taller');
 
@@ -499,7 +578,7 @@ function parseWorkbookToRecords(wb){
       if (records && records.length) return records;
     }
 
-    // Revisar si tiene formato ya normalizado
+    // 2) Intentar formato ya homogeneizado
     if (findCol(header, 'organismo (normalizado)', 'organismo normalizado') >= 0){
       const records = parseHomogeneizadoSheet(header, dataRows);
       if (records && records.length) return records;
@@ -571,7 +650,6 @@ ${err.message}`);
 
 function wireDataTools(){
   const fileInput = document.getElementById('file-input');
-  const btnUpload = document.getElementById('btn-upload');
   const btnDownloadJson = document.getElementById('btn-download-json');
   const dropZone = document.getElementById('drop-zone');
 
@@ -581,31 +659,35 @@ function wireDataTools(){
     });
   }
 
-  if (btnUpload && fileInput) {
-    btnUpload.addEventListener('click', (e) => {
-      e.preventDefault();
-      fileInput.value = '';
-      fileInput.click();
-    });
-
+  if (fileInput) {
     fileInput.addEventListener('change', (e) => {
       const file = e.target.files && e.target.files[0];
-      if (file) processUploadedFile(file);
+      if (file) {
+        processUploadedFile(file);
+        fileInput.value = ''; // Reset para poder re-cargar el mismo archivo si es necesario
+      }
     });
   }
 
-  // Soporte de Arrastrar y Soltar (Drag & Drop)
-  window.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    if (dropZone) dropZone.style.outline = '2px dashed var(--navy)';
+  // Soporte robusto de Drag & Drop en toda la ventana
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    window.addEventListener(eventName, e => e.preventDefault(), false);
+    document.body.addEventListener(eventName, e => e.preventDefault(), false);
   });
+
+  window.addEventListener('dragenter', () => {
+    if (dropZone) dropZone.style.borderColor = 'var(--sky)';
+  });
+
   window.addEventListener('dragleave', (e) => {
-    e.preventDefault();
-    if (dropZone) dropZone.style.outline = 'none';
+    if (e.clientX === 0 || e.clientY === 0) {
+      if (dropZone) dropZone.style.borderColor = 'transparent';
+    }
   });
+
   window.addEventListener('drop', (e) => {
     e.preventDefault();
-    if (dropZone) dropZone.style.outline = 'none';
+    if (dropZone) dropZone.style.borderColor = 'transparent';
     if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       processUploadedFile(e.dataTransfer.files[0]);
     }
