@@ -16,12 +16,11 @@ El proyecto transforma la planilla de registro de capacitaciones en una aplicaci
 ### 1. Indicadores Principales (KPIs)
 - **Total de Instancias:** Conteo dinámico de cursos, talleres, jornadas y ateneos según los filtros activos.
 - **Horas Totales Estimadas:** Suma de carga horaria de las instancias y promedio de duración.
-- **Cupos / Inscriptos Proyectados:** Capacidad de formación proyectada en la red de efectores.
 - **Distribución de Situación:**
   - **Ejecutadas:** Instancias cuya fecha ya ha transcurrido.
   - **Planificadas:** Instancias con fecha futura programada (con desglose de aprobadas vs. en gestión).
   - **Sin fecha precisa:** Instancias que requieren definición de cronograma.
-  - **Pendientes de Asistencia / Aprobación:** Porcentaje de actividades que aún deben certificar participantes.
+- **Calidad de Carga:** Porcentaje de actividades que cuentan con carga horaria completa.
 
 ### 2. Gráficos Analíticos e Interactividad (Cross-Filtering)
 El dashboard cuenta con **11 visualizaciones interactivas** construidas sobre Chart.js:
@@ -40,7 +39,7 @@ El dashboard cuenta con **11 visualizaciones interactivas** construidas sobre Ch
 > **Interactividad Bidireccional:** Al hacer clic en cualquier barra o segmento de los gráficos, todo el dashboard (tarjetas de KPI, los otros 10 gráficos y la tabla de detalle) se filtra automáticamente para ese valor. Los filtros aplicados se visualizan en un banner superior y pueden removerse con un clic.
 
 ### 3. Tabla de Detalle y Búsqueda
-- Tabla paginada con ordenamiento multidireccional por cualquiera de sus columnas (Organismo, Instancia, Tipo, Modalidad, Estado, Situación, Fecha, Horas, Cupos).
+- Tabla paginada con ordenamiento multidireccional por cualquiera de sus columnas (Organismo, Instancia, Tipo, Modalidad, Estado, Situación, Fecha, Horas).
 - Buscador libre por texto que filtra instancias en tiempo real.
 - Modo de **Alto Contraste** para accesibilidad visual.
 

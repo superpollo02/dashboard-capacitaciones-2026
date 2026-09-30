@@ -158,24 +158,22 @@ body.hc .kpi-card, body.hc .chart-container, body.hc .table-section { box-shadow
     <div class="kpi-card navy"><div class="kpi-icon">📋</div><div><div class="kpi-label">Instancias</div><div class="kpi-value" id="kpi-total">0</div><div class="kpi-sub" id="kpi-total-sub"></div></div></div>
     <div class="kpi-card navy"><div class="kpi-icon">✅</div><div><div class="kpi-label">Ejecutadas / en curso</div><div class="kpi-value" id="kpi-ejecutadas">0</div><div class="kpi-sub">fecha de inicio ≤ hoy</div></div></div>
     <div class="kpi-card navy"><div class="kpi-icon">🗓️</div><div><div class="kpi-label">Planificadas</div><div class="kpi-value" id="kpi-planificadas">0</div><div class="kpi-sub">fecha de inicio &gt; hoy</div></div></div>
-    <div class="kpi-card"><div class="kpi-icon">📊</div><div><div class="kpi-label">% con duración y cupo cargados</div><div class="kpi-value" id="kpi-calidad">0%</div><div class="kpi-sub">calidad de carga de la planilla</div></div></div>
+    <div class="kpi-card"><div class="kpi-icon">📊</div><div><div class="kpi-label">% con duración cargada</div><div class="kpi-value" id="kpi-calidad">0%</div><div class="kpi-sub">calidad de carga de la planilla</div></div></div>
   </section>
 
   <div class="section-label">Indicadores secundarios</div>
   <section class="kpi-row secondary">
     <div class="kpi-card"><div class="kpi-icon">⏱️</div><div><div class="kpi-label">Horas totales</div><div class="kpi-value" id="kpi-horas">0</div><div class="kpi-sub">con dato cargado</div></div></div>
     <div class="kpi-card"><div class="kpi-icon">📈</div><div><div class="kpi-label">Prom. hs/instancia</div><div class="kpi-value" id="kpi-prom-horas">0</div></div></div>
-    <div class="kpi-card"><div class="kpi-icon">👥</div><div><div class="kpi-label">Cupos / inscriptos</div><div class="kpi-value" id="kpi-cupos">0</div><div class="kpi-sub">con dato cargado</div></div></div>
     <div class="kpi-card"><div class="kpi-icon">🏢</div><div><div class="kpi-label">Organismos activos</div><div class="kpi-value" id="kpi-organismos">0</div></div></div>
     <div class="kpi-card tan"><div class="kpi-icon">❓</div><div><div class="kpi-label">Sin fecha precisa</div><div class="kpi-value" id="kpi-sinfecha">0</div><div class="kpi-sub">ver nota abajo</div></div></div>
-    <div class="kpi-card"><div class="kpi-icon">⏳</div><div><div class="kpi-label">% asistencia pendiente</div><div class="kpi-value" id="kpi-pendiente">0%</div></div></div>
     <div class="kpi-card tan"><div class="kpi-icon">🚩</div><div><div class="kpi-label">Planificadas sin aprobar</div><div class="kpi-value" id="kpi-planif-sin-aprobar">0</div><div class="kpi-sub">fecha futura, Estado ≠ Aprobado</div></div></div>
   </section>
 
   <section class="chart-row">
     <div class="chart-container chart-wide">
       <h3>Instancias por Organismo, desagregadas por Modalidad</h3>
-      <div class="hint">Click en un segmento filtra por Organismo + Modalidad. Click en la leyenda filtra solo por Modalidad. El tooltip incluye el total de cupos/inscriptos de ese organismo.</div>
+      <div class="hint">Click en un segmento filtra por Organismo + Modalidad. Click en la leyenda filtra solo por Modalidad.</div>
       <canvas id="chart-organismo-modalidad"></canvas>
     </div>
     <div class="chart-container">
@@ -685,8 +683,8 @@ async function exportPDF(){
     doc.text('Detalle de instancias de la consulta', margin, margin+4);
     doc.setFontSize(8);
     doc.setTextColor(0,0,0);
-    const cols = ['Organismo','Instancia','Tipo','Modalidad','Estado','Situación','Fecha','Hs','Cupos'];
-    const colW = [42,60,22,22,22,22,18,10,14];
+    const cols = ['Organismo','Instancia','Tipo','Modalidad','Estado','Situación','Fecha','Hs'];
+    const colW = [48,68,22,22,22,22,18,10];
     let rowY = margin + 10;
     const rowH = 5;
     function drawHeader(){
@@ -701,7 +699,7 @@ async function exportPDF(){
     rows.forEach(r=>{
       if (rowY > pageH - margin){ doc.addPage(); rowY = margin + 4; drawHeader(); }
       let x = margin;
-      const vals = [r.organismo, r.instancia, r.tipo, r.modalidad, r.estado, r.situacion, r.fecha||'s/d', r.duracion??'s/d', r.cupos??'s/d'];
+      const vals = [r.organismo, r.instancia, r.tipo, r.modalidad, r.estado, r.situacion, r.fecha||'s/d', r.duracion??'s/d'];
       vals.forEach((v,i)=>{
         const txt = doc.splitTextToSize(String(v), colW[i]-2)[0] || '';
         doc.text(txt, x, rowY);
@@ -855,8 +853,6 @@ class Dashboard {
     document.getElementById('kpi-horas').textContent = fmtNum(horas);
     document.getElementById('kpi-prom-horas').textContent = conDuracion.length ? (horas/conDuracion.length).toFixed(1) : '0';
 
-    const cupos = d.filter(x=>x.cupos!=null).reduce((a,x)=>a+x.cupos,0);
-    document.getElementById('kpi-cupos').textContent = fmtNum(cupos);
     document.getElementById('kpi-organismos').textContent = new Set(d.map(x=>x.organismo)).size;
 
     document.getElementById('kpi-ejecutadas').textContent = d.filter(x=>x.situacion==='Ejecutada').length;
@@ -865,10 +861,7 @@ class Dashboard {
     document.getElementById('kpi-sinfecha').textContent = sinFecha;
     document.getElementById('sinfecha-inline').textContent = sinFecha;
 
-    const pend = d.length ? Math.round(100*d.filter(x=>x.pendiente_asistencia==='Sí').length/d.length) : 0;
-    document.getElementById('kpi-pendiente').textContent = pend + '%';
-
-    const completos = d.filter(x=>x.duracion!=null && x.cupos!=null).length;
+    const completos = d.filter(x=>x.duracion!=null).length;
     document.getElementById('kpi-calidad').textContent = d.length ? Math.round(100*completos/d.length)+'%' : '0%';
 
     const planifSinAprobar = d.filter(x=>x.situacion==='Planificada' && x.estado!=='Aprobado').length;
@@ -912,10 +905,6 @@ class Dashboard {
     const d = this.filtered();
     const organismos = [...new Set(d.map(x=>x.organismo))].sort();
     const modalidades = [...new Set(this.raw.map(x=>x.modalidad))].sort();
-    const cuposPorOrganismo = {};
-    organismos.forEach(org => {
-      cuposPorOrganismo[org] = d.filter(x=>x.organismo===org && x.cupos!=null).reduce((a,x)=>a+x.cupos,0);
-    });
     const datasets = modalidades.map(mod => ({
       label: mod,
       data: organismos.map(org => d.filter(x=>x.organismo===org && x.modalidad===mod).length),
@@ -943,11 +932,7 @@ class Dashboard {
         plugins:{
           legend:{ position:'top', labels:{ usePointStyle:true, padding:14 }, onClick:(e, item)=>{ this.setFilter('modalidad', item.text); } },
           tooltip:{ callbacks:{
-            label:(c)=> ` ${c.dataset.label}: ${fmtNum(c.parsed.y)} instancias`,
-            footer:(items)=> {
-              const org = items[0].label;
-              return `Cupos/inscriptos totales: ${fmtNum(cuposPorOrganismo[org]||0)}`;
-            }
+            label:(c)=> ` ${c.dataset.label}: ${fmtNum(c.parsed.y)} instancias`
           }}
         },
         scales:{
@@ -1286,7 +1271,7 @@ class Dashboard {
     const cols = [
       {f:'organismo', l:'Organismo'}, {f:'instancia', l:'Instancia'}, {f:'tipo', l:'Tipo'},
       {f:'modalidad', l:'Modalidad'}, {f:'estado', l:'Estado'}, {f:'situacion', l:'Situación'},
-      {f:'fecha', l:'Fecha inicio'}, {f:'duracion', l:'Hs'}, {f:'cupos', l:'Cupos'}
+      {f:'fecha', l:'Fecha inicio'}, {f:'duracion', l:'Hs'}
     ];
     let html = '<table class="data-table"><thead><tr>';
     cols.forEach(c=>{ const arrow = this.sortCol===c.f ? (this.sortDir==='asc'?' ▲':' ▼') : ''; html += `<th data-col="${c.f}">${c.l}${arrow}</th>`; });
@@ -1300,7 +1285,6 @@ class Dashboard {
       html += `<td>${sitBadge}</td>`;
       html += `<td>${r.fecha || '<span style="color:#8b8b93">s/d</span>'}</td>`;
       html += `<td>${r.duracion ?? '<span style="color:#8b8b93">s/d</span>'}</td>`;
-      html += `<td>${r.cupos ?? '<span style="color:#8b8b93">s/d</span>'}</td>`;
       html += '</tr>';
     });
     html += '</tbody></table>';
