@@ -27,7 +27,7 @@ El dashboard cuenta con **11 visualizaciones interactivas** construidas sobre Ch
 1. **Organismos x Modalidad:** Barras apiladas que contrastan la modalidad de dictado (Presencial, Virtual, Híbrido, Asincrónico) en cada organismo.
 2. **Distribución por Modalidad:** Proporción global de instancias por modalidad.
 3. **Distribución por Estado:** Estado administrativo (Aprobado, Pendiente, En gestión, etc.).
-4. **Distribución por Tipo de Formación:** Cursos, Talleres, Jornadas, Ateneos y Reuniones.
+4. **Distribución por Tipo de Formación:** Cursos, Talleres, Jornadas y Ateneos.
 5. **Carga Horaria:** Segmentación por tramos de duración (`0-4 hs`, `4-8 hs`, `8-20 hs`, `+20 hs`).
 6. **Destinatarios:** Clasificación automática del público objetivo (Enfermería, Medicina / Equipo de salud, Odontología, Nutrición, Salud Mental, Docentes, Residentes, etc.).
 7. **Top Organismos más Activos:** Ranking de dependencias con mayor cantidad de actividades con fecha.
@@ -92,7 +92,7 @@ Y navegando a `http://localhost:3000`.
 ```text
 ├── index.html                                  # Aplicación web completa del dashboard
 ├── data/
-│   └── capacitaciones.json                    # Dataset estructurado sincronizado (138 instancias)
+│   └── capacitaciones.json                    # Dataset estructurado sincronizado (131 instancias)
 ├── assets/
 │   └── logo.png                               # Isotipo institucional
 ├── Planilla_registro capacitaciones 2026.xlsx  # Planilla original de carga
