@@ -50,7 +50,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "CURSO MODULAR PRECAP ODONTOLOGIA",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-04-27",
     "mes": "2026-04",
@@ -114,7 +114,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "Infecciones de los espacios  profundos del cuello de origen dentario. Urgencias odontologicas",
-    "tipo": "Jornada",
+    "tipo": "Taller",
     "temporalidad": "Instancia Única",
     "fecha": "2026-04-27",
     "mes": "2026-04",
@@ -130,7 +130,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "manifestaciones bucales de ETS",
-    "tipo": "Jornada",
+    "tipo": "Taller",
     "temporalidad": "Instancia Única",
     "fecha": "20206-05-19",
     "mes": "20206-0",
@@ -146,7 +146,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "Odontologia biomimética restauradora",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-05-04",
     "mes": "2026-05",
@@ -162,7 +162,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "Endodoncia mecanizada",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-05-28",
     "mes": "2026-05",
@@ -194,7 +194,7 @@
   {
     "organismo": "Dirección de Discapacidad",
     "instancia": "PREVENCION Y DETECCION DE ALTERACIONES DESARROLLO INFANTIL  O A 4 AÑOS",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-10-06",
     "mes": "2026-10",
@@ -290,7 +290,7 @@
   {
     "organismo": "Dirección de Planificación",
     "instancia": "Curso anual Red Provincial Resucitacion Cardio Pulmonar",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-04-30",
     "mes": "2026-04",
@@ -594,7 +594,7 @@
   {
     "organismo": "Depto Educación para la salud",
     "instancia": "Claves Clínicas en Alergia:lo que todo médico debe saber",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": null,
     "mes": null,
@@ -610,7 +610,7 @@
   {
     "organismo": "Depto Educación para la salud",
     "instancia": "Curso: Formación en Salud - Herramientas para la Acción Educativa. Escuelas promotoras",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-09-10",
     "mes": "2026-09",
@@ -620,38 +620,6 @@
     "dirigido_a": "Docentes de todos los niveles educativos.",
     "dirigido_cat": "Docentes / Educación",
     "cupos": null,
-    "estado": "Aprobado",
-    "pendiente_asistencia": "Sí"
-  },
-  {
-    "organismo": "Hospital Luis C. Lagomaggiore",
-    "instancia": "VI Jornadas de Actualización Kinésicas: Una Visión Integral",
-    "tipo": "Jornada",
-    "temporalidad": "Instancia Única",
-    "fecha": "2026-04-13",
-    "mes": "2026-04",
-    "modalidad": "Presencial",
-    "lugar": "S.U.M. Hospital Luis C. Lagomaggiore",
-    "duracion": null,
-    "dirigido_a": "Profesionales de kinesiología",
-    "dirigido_cat": "Otro / sin clasificar",
-    "cupos": null,
-    "estado": "Aprobado",
-    "pendiente_asistencia": "Sí"
-  },
-  {
-    "organismo": "LABNU - Salud Pública / Dir. Epidemiología",
-    "instancia": "Reunión Red de diag. serológico y Vigilancia Chagas",
-    "tipo": "Taller",
-    "temporalidad": "Instancia Única",
-    "fecha": "2026-06-26",
-    "mes": "2026-06",
-    "modalidad": "Presencial",
-    "lugar": "Sala de Ateneo Labnu",
-    "duracion": 3,
-    "dirigido_a": "Red de Laboratorios de Chagas",
-    "dirigido_cat": "Otro / sin clasificar",
-    "cupos": 35,
     "estado": "Aprobado",
     "pendiente_asistencia": "Sí"
   },
@@ -1010,7 +978,7 @@
   {
     "organismo": "Dirección de Maternidad e Infancia",
     "instancia": "Actividades de promoción y prevención de ITS (en conjunto con otros programas)",
-    "tipo": "Otro",
+    "tipo": "Taller",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": null,
     "mes": null,
@@ -1090,7 +1058,7 @@
   {
     "organismo": "Ministerio de Salud",
     "instancia": "Curso Anual de Enfermería Práctica (CAEP)",
-    "tipo": "Curso Modular",
+    "tipo": "Curso",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2025-11-01",
     "mes": "2025-11",
@@ -1229,38 +1197,6 @@
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
     "estado": "realizado",
-    "pendiente_asistencia": "Sí"
-  },
-  {
-    "organismo": "PROGRAMA PROVINCIAL DE SALUD INTEGRAL EN ADOLESCENCIA",
-    "instancia": "Introducción a las Asies",
-    "tipo": "Jornada",
-    "temporalidad": "Instancia Única",
-    "fecha": null,
-    "mes": null,
-    "modalidad": "Presencial",
-    "lugar": "Áreas departamentales de Salud",
-    "duracion": 2,
-    "dirigido_a": "Equipos de salud de cada departamento de la provincia con perfil para el trabajo con adolescentes",
-    "dirigido_cat": "Otro / sin clasificar",
-    "cupos": 30,
-    "estado": "Pendiente",
-    "pendiente_asistencia": "Sí"
-  },
-  {
-    "organismo": "PROGRAMA PROVINCIAL DE SALUD INTEGRAL EN ADOLESCENCIA",
-    "instancia": "Actualizaciones sobre diferentes temáticas de salud integral en adolescencia",
-    "tipo": "Jornada",
-    "temporalidad": "Ciclo / Varios Encuentros",
-    "fecha": null,
-    "mes": null,
-    "modalidad": "Virtual",
-    "lugar": "Plataforma virtual Meet",
-    "duracion": 1,
-    "dirigido_a": "Asesores de Salud Integral en Escuelas Secundarias (Personal de Salud)",
-    "dirigido_cat": "Medicina / Equipo de salud",
-    "cupos": 30,
-    "estado": "Pendiente",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1697,8 +1633,8 @@
   },
   {
     "organismo": "Hospital Central de Mendoza",
-    "instancia": "Charla de Cirugía Bariatica a Pacientes y Público en General",
-    "tipo": "Jornada",
+    "instancia": "de Cirugía Bariatica a Pacientes y Público en General",
+    "tipo": "Taller",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-03-03",
     "mes": "2026-03",
@@ -1922,7 +1858,7 @@
   {
     "organismo": "Dirección de Maternidad e Infancia",
     "instancia": "Presentación del PPMI. Circuitos de intervención en violencias contra NNyA PPMI",
-    "tipo": "Otro",
+    "tipo": "Curso",
     "temporalidad": "Instancia Única",
     "fecha": "2026-07-29",
     "mes": "2026-07",
@@ -2002,7 +1938,7 @@
   {
     "organismo": "Dirección de Maternidad e Infancia",
     "instancia": "I Jornadas Provinciales de Medicina Materno-Fetal",
-    "tipo": "Sin dato",
+    "tipo": "Jornada",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-09-23",
     "mes": "2026-09",
@@ -2018,7 +1954,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "BIOMIMETICA RESTAURADORA",
-    "tipo": "Sin dato",
+    "tipo": "Jornada",
     "temporalidad": "Instancia Única",
     "fecha": "2026-10-09",
     "mes": "2026-10",
@@ -2050,7 +1986,7 @@
   {
     "organismo": "UNCUYO / Ministerio de Salud y Deportes (Mendoza)",
     "instancia": "Liderar para transformar: Liderazgo en las organizaciones públicas y gestión de la comunicación interna",
-    "tipo": "Sin dato",
+    "tipo": "Taller",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-24",
     "mes": "2026-09",
@@ -2066,7 +2002,7 @@
   {
     "organismo": "UNCUYO / Ministerio de Salud y Deportes (Mendoza)",
     "instancia": "Liderar para transformar: Liderazgo en las organizaciones públicas y gestión de la comunicación interna",
-    "tipo": "Sin dato",
+    "tipo": "Taller",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-25",
     "mes": "2026-09",
@@ -2082,7 +2018,7 @@
   {
     "organismo": "Dirección de Epidemiología",
     "instancia": "Seguridad del Paciente - Talleres de implementación de sistemas de reporte y análisis de eventos adversos",
-    "tipo": "Sin dato",
+    "tipo": "Curso",
     "temporalidad": "Sin dato",
     "fecha": "2026-09-29",
     "mes": "2026-09",
@@ -2114,7 +2050,7 @@
   {
     "organismo": "Ministerio de Salud y Deportes - Dirección de Epidemiología, Calidad y Control de Gestión - Departamento de Calidad y Seguridad del Paciente",
     "instancia": "Estrategia de Reporte de Incidentes",
-    "tipo": "Sin dato",
+    "tipo": "Jornada",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-29",
     "mes": "2026-09",
