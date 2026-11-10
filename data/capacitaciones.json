@@ -67,7 +67,7 @@
     "organismo": "Depto Inmunizaciones",
     "instancia": "Curso PAI 2026",
     "tipo": "Curso",
-    "temporalidad": "Sin dato",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-05-18",
     "mes": "2026-05",
     "modalidad": "Asincrónico",
@@ -114,7 +114,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "Infecciones de los espacios  profundos del cuello de origen dentario. Urgencias odontologicas",
-    "tipo": "Taller",
+    "tipo": "Jornada",
     "temporalidad": "Instancia Única",
     "fecha": "2026-04-27",
     "mes": "2026-04",
@@ -130,7 +130,7 @@
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "manifestaciones bucales de ETS",
-    "tipo": "Taller",
+    "tipo": "Jornada",
     "temporalidad": "Instancia Única",
     "fecha": "20206-05-19",
     "mes": "20206-0",
@@ -211,7 +211,7 @@
     "organismo": "Dirección de Salud Mental",
     "instancia": "Prácticas Grupales en Salud Mental",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-03-01",
     "mes": "2026-03",
     "modalidad": "Híbrido",
@@ -243,7 +243,7 @@
     "organismo": "Dirección de Epidemiología",
     "instancia": "Curso Básico de Introducción a Programas de Capacitación en Control de Infecciones",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": null,
     "mes": null,
     "modalidad": "Asincrónico",
@@ -259,7 +259,7 @@
     "organismo": "Dirección de Epidemiología",
     "instancia": "Programa de Capacitación de Inducción para Residentes: Calidad y Seguridad del Paciente",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": null,
     "mes": null,
     "modalidad": "Asincrónico",
@@ -275,7 +275,7 @@
     "organismo": "Dirección de Epidemiología",
     "instancia": "Curso Básico de Capacitación para Personal de Salud en Prevención y Control de IACS",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-08-01",
     "mes": "2026-08",
     "modalidad": "Asincrónico",
@@ -624,6 +624,22 @@
     "pendiente_asistencia": "Sí"
   },
   {
+    "organismo": "Hospital Luis C. Lagomaggiore",
+    "instancia": "VI Jornadas de Actualización Kinésicas: Una Visión Integral",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-04-13",
+    "mes": "2026-04",
+    "modalidad": "Presencial",
+    "lugar": "S.U.M. Hospital Luis C. Lagomaggiore",
+    "duracion": null,
+    "dirigido_a": "Profesionales de kinesiología",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Aprobado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
     "organismo": "LABNU - Salud Pública / Dir. Epidemiología",
     "instancia": "Taller de Vigilancia y Diag. de IRA",
     "tipo": "Taller",
@@ -707,7 +723,7 @@
     "organismo": "LABNU - Salud Pública / Dir. Epidemiología",
     "instancia": "Taller Capacitación búsqueda niños madres Chagas",
     "tipo": "Taller",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-03-26",
     "mes": "2026-03",
     "modalidad": "Presencial",
@@ -978,7 +994,7 @@
   {
     "organismo": "Dirección de Maternidad e Infancia",
     "instancia": "Actividades de promoción y prevención de ITS (en conjunto con otros programas)",
-    "tipo": "Taller",
+    "tipo": "Jornada",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": null,
     "mes": null,
@@ -1059,7 +1075,7 @@
     "organismo": "Ministerio de Salud",
     "instancia": "Curso Anual de Enfermería Práctica (CAEP)",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2025-11-01",
     "mes": "2025-11",
     "modalidad": "Asincrónico",
@@ -1075,7 +1091,7 @@
     "organismo": "Ministerio de Salud",
     "instancia": "Curso Anual de Medicina Práctica (CAMP) 2026 - Módulo Quirúrgico: Cirugía Craneofacial y Cervical",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-05-01",
     "mes": "2026-05",
     "modalidad": "Asincrónico",
@@ -1091,7 +1107,7 @@
     "organismo": "Subsecretaría de Salud",
     "instancia": "Programa de Capacitación en Geriatría y Gerontología para Médicos Generalistas",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-06-01",
     "mes": "2026-06",
     "modalidad": "Híbrido",
@@ -1107,7 +1123,7 @@
     "organismo": "Subsecretaría de Salud",
     "instancia": "Programa de Capacitación en Geriatría y Gerontología para Médicos de Guardia Generales",
     "tipo": "Curso",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-06-01",
     "mes": "2026-06",
     "modalidad": "Asincrónico",
@@ -1171,7 +1187,7 @@
     "organismo": "Hospital Perrupato",
     "instancia": "2 ° CONGRESO DE NIÑEZ Y ADOLESCENCIA LOS DESAFÍOS DEL OTOÑO",
     "tipo": "Jornada",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": null,
     "mes": null,
     "modalidad": "Presencial",
@@ -1187,7 +1203,7 @@
     "organismo": "PROGRAMA DE SALUD REPRODUCTIVA",
     "instancia": "Taller Derechos sexuales y reproductivos: Acceso a métodos anticonceptivos",
     "tipo": "Taller",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "temporalidad": "Instancia Única",
     "fecha": null,
     "mes": null,
     "modalidad": "Virtual",
@@ -1196,7 +1212,39 @@
     "dirigido_a": "equipos de salud, educación y estudiantes de carreras afines",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "PROGRAMA PROVINCIAL DE SALUD INTEGRAL EN ADOLESCENCIA",
+    "instancia": "Introducción a las Asies",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": null,
+    "mes": null,
+    "modalidad": "Presencial",
+    "lugar": "Áreas departamentales de Salud",
+    "duracion": 2,
+    "dirigido_a": "Equipos de salud de cada departamento de la provincia con perfil para el trabajo con adolescentes",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": 30,
+    "estado": "Pendiente",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "PROGRAMA PROVINCIAL DE SALUD INTEGRAL EN ADOLESCENCIA",
+    "instancia": "Actualizaciones sobre diferentes temáticas de salud integral en adolescencia",
+    "tipo": "Jornada",
+    "temporalidad": "Ciclo / Varios Encuentros",
+    "fecha": null,
+    "mes": null,
+    "modalidad": "Virtual",
+    "lugar": "Plataforma virtual Meet",
+    "duracion": 1,
+    "dirigido_a": "Asesores de Salud Integral en Escuelas Secundarias (Personal de Salud)",
+    "dirigido_cat": "Medicina / Equipo de salud",
+    "cupos": 30,
+    "estado": "Pendiente",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1404,7 +1452,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 400,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1420,7 +1468,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 400,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1452,7 +1500,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1468,7 +1516,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1484,7 +1532,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1500,7 +1548,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1516,7 +1564,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1532,7 +1580,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1548,7 +1596,7 @@
     "dirigido_a": "Personal Hospital Saporiti",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 50,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1628,13 +1676,13 @@
     "dirigido_a": "Todo el personal del Hospital Central",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 102,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "Hospital Central de Mendoza",
-    "instancia": "de Cirugía Bariatica a Pacientes y Público en General",
-    "tipo": "Taller",
+    "instancia": "Charla de Cirugía Bariatica a Pacientes y Público en General",
+    "tipo": "Jornada",
     "temporalidad": "Ciclo / Varios Encuentros",
     "fecha": "2026-03-03",
     "mes": "2026-03",
@@ -1644,7 +1692,7 @@
     "dirigido_a": "Pacientes , es una charla con extensión a la comunidad",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1660,7 +1708,7 @@
     "dirigido_a": "Pacientes, Personal del Hospital Central , Público en General",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1676,7 +1724,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1692,7 +1740,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1708,7 +1756,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1724,7 +1772,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1740,7 +1788,7 @@
     "dirigido_a": "Empresas terciarizada que desarrollan sus tareas en el Hospital Central ( GLOSY, CLISA, SECURITY, CAREST)",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 60,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1756,7 +1804,7 @@
     "dirigido_a": "Todo el personal del Hospital Central y empresas terciarizadas",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": 32,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1772,7 +1820,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1788,7 +1836,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1804,7 +1852,7 @@
     "dirigido_a": "Dirigido a la comunidad y público en general",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1820,14 +1868,14 @@
     "dirigido_a": "Médicos y profesionales interesados en la temática",
     "dirigido_cat": "Medicina / Equipo de salud",
     "cupos": 94,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "Hospital Central de Mendoza",
     "instancia": "Insulinizacion en pacientes internados y su paso al consultorio externo.26",
     "tipo": "Jornada",
-    "temporalidad": "Sin dato",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-06-26",
     "mes": "2026-06",
     "modalidad": "Presencial",
@@ -1836,7 +1884,7 @@
     "dirigido_a": "Personal médico- enfermería y demás interesados en la temática",
     "dirigido_cat": "Enfermería",
     "cupos": 94,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1916,7 +1964,7 @@
     "dirigido_a": "Profesionales de la salud, pacientes con FLAP y sus familias.",
     "dirigido_cat": "Medicina / Equipo de salud",
     "cupos": null,
-    "estado": "en curso",
+    "estado": "En curso",
     "pendiente_asistencia": "Sí"
   },
   {
@@ -1932,14 +1980,14 @@
     "dirigido_a": "profesionales y noprofesionales asistenciales de hospitales ",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "en curso",
+    "estado": "En curso",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "Dirección de Maternidad e Infancia",
     "instancia": "I Jornadas Provinciales de Medicina Materno-Fetal",
-    "tipo": "Jornada",
-    "temporalidad": "Ciclo / Varios Encuentros",
+    "tipo": "Sin dato",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-09-23",
     "mes": "2026-09",
     "modalidad": "Presencial",
@@ -1948,13 +1996,13 @@
     "dirigido_a": "Profesionales del sector salud que desarrollen actividad en el campo de la medicina materno-feto-neonatal: Tocoginecólogos, Pediatras, Neonatólogos, Cirujanos infantiles, Cirujanos fetales, Cardiólogos infantiles, Neurólogos infantiles, Genetistas, Médicos de Familia que atiendan gestantes, Ecografistas que vean gestantes, RNM en embarazadas, Licenciados en Obstetricia, Licenciados en Psicología",
     "dirigido_cat": "Salud Mental",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "Departamento Provincial de Odontología",
     "instancia": "BIOMIMETICA RESTAURADORA",
-    "tipo": "Jornada",
+    "tipo": "Sin dato",
     "temporalidad": "Instancia Única",
     "fecha": "2026-10-09",
     "mes": "2026-10",
@@ -1986,7 +2034,7 @@
   {
     "organismo": "UNCUYO / Ministerio de Salud y Deportes (Mendoza)",
     "instancia": "Liderar para transformar: Liderazgo en las organizaciones públicas y gestión de la comunicación interna",
-    "tipo": "Taller",
+    "tipo": "Sin dato",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-24",
     "mes": "2026-09",
@@ -1996,13 +2044,13 @@
     "dirigido_a": "Directores de hospitales y autoridades del Ministerio",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "UNCUYO / Ministerio de Salud y Deportes (Mendoza)",
     "instancia": "Liderar para transformar: Liderazgo en las organizaciones públicas y gestión de la comunicación interna",
-    "tipo": "Taller",
+    "tipo": "Sin dato",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-25",
     "mes": "2026-09",
@@ -2012,17 +2060,17 @@
     "dirigido_a": "Coordinadores de Áreas de Salud y Directores de programas del Ministerio de Salud.",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
     "pendiente_asistencia": "Sí"
   },
   {
     "organismo": "Dirección de Epidemiología",
     "instancia": "Seguridad del Paciente - Talleres de implementación de sistemas de reporte y análisis de eventos adversos",
-    "tipo": "Curso",
-    "temporalidad": "Sin dato",
+    "tipo": "Sin dato",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-09-29",
     "mes": "2026-09",
-    "modalidad": "Asincrónica A Través De La Plataforma Moodle",
+    "modalidad": "Asincrónico",
     "lugar": "Campus Virtual ESALUD",
     "duracion": null,
     "dirigido_a": "15 establecimientos de salud pública y de la seguridad social que cuentan con Comité Hospitalario de Calidad y Seguridad del Paciente",
@@ -2035,7 +2083,7 @@
     "organismo": "Escuela de salud pública",
     "instancia": "Capacitación profesionales salud mental",
     "tipo": "Curso",
-    "temporalidad": "A definir",
+    "temporalidad": "Instancia Única",
     "fecha": "2026-10-01",
     "mes": "2026-10",
     "modalidad": "Asincrónico",
@@ -2050,11 +2098,11 @@
   {
     "organismo": "Ministerio de Salud y Deportes - Dirección de Epidemiología, Calidad y Control de Gestión - Departamento de Calidad y Seguridad del Paciente",
     "instancia": "Estrategia de Reporte de Incidentes",
-    "tipo": "Jornada",
+    "tipo": "Sin dato",
     "temporalidad": "Instancia Única",
     "fecha": "2026-09-29",
     "mes": "2026-09",
-    "modalidad": "Asincrónica",
+    "modalidad": "Asincrónico",
     "lugar": "Campus Virtual ESALUD / Moodle",
     "duracion": null,
     "dirigido_a": "15 establecimientos de salud pública y de la seguridad social que cuentan con Comité Hospitalario de Calidad y Seguridad del Paciente",
@@ -2092,7 +2140,199 @@
     "dirigido_a": "capacitacion interna administradores del ministerio",
     "dirigido_cat": "Otro / sin clasificar",
     "cupos": null,
-    "estado": "realizado",
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Capacitación profesionales salud mental",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-09-11",
+    "mes": "2026-09",
+    "modalidad": "Presencial",
+    "lugar": "Velle de UCO",
+    "duracion": 3,
+    "dirigido_a": "36 profesionales de salud mental",
+    "dirigido_cat": "Salud Mental",
+    "cupos": 36,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-08-25",
+    "mes": "2026-08",
+    "modalidad": "Presencial",
+    "lugar": "Hospital Carillo",
+    "duracion": 18,
+    "dirigido_a": "35 porfesionales de salud mental",
+    "dirigido_cat": "Salud Mental",
+    "cupos": 35,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental UDP",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-01-21",
+    "mes": "2026-01",
+    "modalidad": "Presencial",
+    "lugar": "Educación para la salud",
+    "duracion": 9,
+    "dirigido_a": "20 profesionales ",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Escuelas promotoras de salud",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-09-01",
+    "mes": "2026-09",
+    "modalidad": "Asincrónico",
+    "lugar": "ESALUD",
+    "duracion": 30,
+    "dirigido_a": "70 docentes",
+    "dirigido_cat": "Docentes / Educación",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Dispositivos grupales terapeuticos",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-05-15",
+    "mes": "2026-05",
+    "modalidad": "Presencial",
+    "lugar": "Colegio de Psicologos",
+    "duracion": 10,
+    "dirigido_a": "300 profesionales en toda la capacitación",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Personal de las fuerzas de seguridad Prevención del suicidio",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-04-08",
+    "mes": "2026-04",
+    "modalidad": "Presencial",
+    "lugar": "En los lugares dependiendo la región",
+    "duracion": 60,
+    "dirigido_a": "4000 personal de las fuerzas de seguridad",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Personal del poder judicial Prevencion del suicidio",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-03-30",
+    "mes": "2026-03",
+    "modalidad": "Presencial",
+    "lugar": "RRHH del poder judicial ",
+    "duracion": 30,
+    "dirigido_a": "300 personas del poder judicial ",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales Ministerio de Salud Caja de herramientas salud mental",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2027-03-01",
+    "mes": "2027-03",
+    "modalidad": "Asincrónico",
+    "lugar": "IPAP",
+    "duracion": 30,
+    "dirigido_a": "700 personas de Min Salud",
+    "dirigido_cat": "Otro / sin clasificar",
+    "cupos": null,
+    "estado": "Programado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Tratamiento mental de dificil manejo",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-05-01",
+    "mes": "2026-05",
+    "modalidad": "Presencial",
+    "lugar": "Universidad de Congreso",
+    "duracion": null,
+    "dirigido_a": "200 profesionales salud mental",
+    "dirigido_cat": "Salud Mental",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Movetemente",
+    "tipo": "Jornada",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-07-29",
+    "mes": "2026-07",
+    "modalidad": "Presencial",
+    "lugar": "Dirección Salud Mental",
+    "duracion": 30,
+    "dirigido_a": "20 profesionales Salud Mental PNA",
+    "dirigido_cat": "Salud Mental",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Salud mental infato juvenil",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-08-25",
+    "mes": "2026-08",
+    "modalidad": "Presencial",
+    "lugar": "Hospital Carillo",
+    "duracion": 18,
+    "dirigido_a": "35 profesionales de la salud",
+    "dirigido_cat": "Medicina / Equipo de salud",
+    "cupos": null,
+    "estado": "Realizado",
+    "pendiente_asistencia": "Sí"
+  },
+  {
+    "organismo": "Dirección de Salud Mental",
+    "instancia": "Profesionales de salud mental Salud mental relacional",
+    "tipo": "Curso",
+    "temporalidad": "Instancia Única",
+    "fecha": "2026-10-01",
+    "mes": "2026-10",
+    "modalidad": "Asincrónico",
+    "lugar": "ESALUD",
+    "duracion": 40,
+    "dirigido_a": "",
+    "dirigido_cat": "Sin dato",
+    "cupos": null,
+    "estado": "En curso",
     "pendiente_asistencia": "Sí"
   }
 ]
