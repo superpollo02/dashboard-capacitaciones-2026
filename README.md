@@ -92,7 +92,7 @@ Y navegando a `http://localhost:3000`.
 ```text
 ├── index.html                                  # Aplicación web completa del dashboard
 ├── data/
-│   └── capacitaciones.json                    # Dataset estructurado sincronizado (146 instancias)
+│   └── capacitaciones.json                    # Dataset estructurado sincronizado (150 instancias)
 ├── assets/
 │   └── logo.png                               # Isotipo institucional
 ├── Planilla_registro capacitaciones 2026.xlsx  # Planilla original de carga
