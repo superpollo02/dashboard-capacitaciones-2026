@@ -563,7 +563,16 @@ function parseCrudaSheet(header, rows){
 }
 
 function parseWorkbookToRecords(wb){
-  for (const name of wb.SheetNames){
+  // Priorizar específicamente la hoja 'Registro 2026'
+  const sheetNames = [...wb.SheetNames].sort((a, b) => {
+    const aMatch = a.toLowerCase().includes('registro') ? -1 : 0;
+    const bMatch = b.toLowerCase().includes('registro') ? 1 : 0;
+    return aMatch - bMatch;
+  });
+
+  for (const name of sheetNames){
+    // Omitir hojas de soporte o logs como _Log o _Sinonimos si existen
+    if (name.startsWith('_')) continue;
     const sheet = wb.Sheets[name];
     if (!sheet) continue;
     const rows = XLSX.utils.sheet_to_json(sheet, { header:1, defval:null, raw:true });
