@@ -141,9 +141,12 @@ body.hc .kpi-card, body.hc .chart-container, body.hc .table-section { box-shadow
 
   <div class="data-tools" id="drop-zone" style="border: 2px dashed transparent; border-radius: var(--radius); padding: 4px; transition: border-color .2s;">
     <input type="file" id="file-input" accept=".xlsx, .xls, .xlsm, .csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, *" style="position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;">
-    <label for="file-input" class="btn primary" id="btn-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
-      📂 Adjuntar archivo Excel (.xls / .xlsx)
+    <label for="file-input" class="btn" id="btn-upload" style="cursor:pointer; display:inline-flex; align-items:center; gap:6px;">
+      📂 Adjuntar Excel local
     </label>
+    <button class="btn primary" id="btn-sync-sheets" style="display:inline-flex; align-items:center; gap:6px;" title="Consultar cambios en vivo desde la planilla Google Sheets">
+      🔄 Sincronizar Google Sheets
+    </button>
     <button class="btn" id="btn-download-json" style="display:none;" title="Descargar datos en formato JSON para actualizar el repositorio de GitHub">💾 Descargar capacitaciones.json</button>
     <button class="btn" id="btn-export-pdf">🖨️ Exportar informe PDF (A4 apaisado)</button>
     <span class="status" id="data-status">Cargando datos...</span>
@@ -1369,28 +1372,100 @@ function wireDataTools(){
   if (btnExportPdf) {
     btnExportPdf.addEventListener('click', () => exportPDF());
   }
+
+  const btnSyncSheets = document.getElementById('btn-sync-sheets');
+  if (btnSyncSheets) {
+    btnSyncSheets.addEventListener('click', () => syncGoogleSheets(true));
+  }
+}
+
+// Configuración de sincronización con Google Sheets (en modo lectura directa)
+const GOOGLE_SHEETS_CSV_URL = window.GOOGLE_SHEETS_CSV_URL || 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSFzNxBWFZssvS8ZFy3Lx3EnDuNS8-F9JJrw4npZM1Cf5D-0A3lc7Mf-4w3izKtq9g1kHSI40wijI6G/pub?gid=757072443&single=true&output=csv';
+
+async function syncGoogleSheets(manual = false){
+  const targetUrl = GOOGLE_SHEETS_CSV_URL.trim();
+  if (!targetUrl) {
+    if (manual) {
+      alert("Para sincronizar automáticamente con Google Sheets:\n\n1. Abrí tu planilla en Google Drive.\n2. Andá a Archivo > Compartir > Publicar en la web.\n3. Elegí 'Valores separados por comas (.csv)' y hacé clic en Publicar.\n4. Copiá ese enlace y pegalo en la variable GOOGLE_SHEETS_CSV_URL en index.html.\n\nPor el momento, el dashboard continuará usando los datos sincronizados de data/capacitaciones.json.");
+    }
+    return false;
+  }
+
+  const btnSync = document.getElementById('btn-sync-sheets');
+  const originalText = btnSync ? btnSync.innerHTML : '';
+  if (btnSync) {
+    btnSync.disabled = true;
+    btnSync.innerHTML = '<span class="spinner"></span> Sincronizando...';
+  }
+  setStatus('Consultando datos en vivo de Google Sheets...');
+
+  try {
+    // Añadimos cache-buster para garantizar datos frescos
+    const fetchUrl = targetUrl + (targetUrl.includes('?') ? '&' : '?') + '_t=' + Date.now();
+    const res = await fetch(fetchUrl, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    const csvText = await res.text();
+    if (!csvText || csvText.trim().length === 0) {
+      throw new Error('La respuesta de Google Sheets está vacía.');
+    }
+
+    const wb = XLSX.read(csvText, { type: 'string', cellDates: true });
+    const records = parseWorkbookToRecords(wb);
+    if (!records || !records.length) {
+      throw new Error('No se encontraron registros de capacitaciones válidos en la hoja.');
+    }
+
+    currentLoadedRecords = records;
+    dashboard.loadNewData(records);
+    const ahora = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+    setStatus(`✅ En vivo desde Google Sheets: ${records.length} instancias sincronizadas · ${ahora}`, 'ok');
+    setText('footer-fecha', `Conectado en vivo a Google Sheets · ${records.length} instancias · ${ahora}`);
+
+    const btnDownload = document.getElementById('btn-download-json');
+    if (btnDownload) btnDownload.style.display = 'inline-flex';
+
+    return true;
+  } catch (err) {
+    console.warn('No se pudo sincronizar desde Google Sheets:', err);
+    if (manual) {
+      alert('No se pudo conectar a Google Sheets:\n\n' + err.message + '\n\nVerificá que el enlace esté publicado en la web o tenga permisos de lectura abiertos.');
+    }
+    return false;
+  } finally {
+    if (btnSync) {
+      btnSync.disabled = false;
+      btnSync.innerHTML = originalText;
+    }
+  }
 }
 
 // Inicialización del Dashboard
 const dashboard = new Dashboard(DATA);
 wireDataTools();
-setStatus(`Conectado: ${DATA.length} instancias sincronizadas`, 'ok');
+setStatus(`Conectado: ${DATA.length} instancias iniciales`, 'ok');
 
-// Sincronización asíncrona en línea desde data/capacitaciones.json
-(async function syncOnlineData(){
-  try {
-    const res = await fetch('./data/capacitaciones.json', { cache: 'no-cache' });
-    if (res.ok) {
-      const onlineRecords = await res.json();
-      if (Array.isArray(onlineRecords) && onlineRecords.length > 0) {
-        currentLoadedRecords = onlineRecords;
-        dashboard.loadNewData(onlineRecords);
-        setStatus(`Conectado online: ${onlineRecords.length} instancias sincronizadas`, 'ok');
-        setText('footer-fecha', `Datos online · ${onlineRecords.length} instancias cargadas`);
+// Sincronización al iniciar: 1° Intenta Google Sheets en vivo, 2° data/capacitaciones.json, 3° DATA embebido
+(async function initSync(){
+  let synced = false;
+  if (GOOGLE_SHEETS_CSV_URL.trim()) {
+    synced = await syncGoogleSheets(false);
+  }
+
+  if (!synced) {
+    try {
+      const res = await fetch('./data/capacitaciones.json', { cache: 'no-cache' });
+      if (res.ok) {
+        const onlineRecords = await res.json();
+        if (Array.isArray(onlineRecords) && onlineRecords.length > 0) {
+          currentLoadedRecords = onlineRecords;
+          dashboard.loadNewData(onlineRecords);
+          setStatus(`Conectado online: ${onlineRecords.length} instancias sincronizadas`, 'ok');
+          setText('footer-fecha', `Datos online · ${onlineRecords.length} instancias cargadas`);
+        }
       }
+    } catch (err) {
+      console.log('Operando en modo local/offline con dataset embebido.');
     }
-  } catch (err) {
-    console.log('Operando en modo local/offline con dataset embebido.');
   }
 })();
 </script>

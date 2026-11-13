@@ -48,18 +48,31 @@ El dashboard cuenta con **11 visualizaciones interactivas** construidas sobre Ch
 
 ---
 
-## 🔄 ¿Cómo se Actualizan los Datos con una Nueva Planilla Excel?
+## 🔄 ¿Cómo se Actualizan los Datos?
 
-El sistema cuenta con un procesador en el navegador (`SheetJS`) con reglas automáticas de normalización:
+El sistema cuenta con un procesador en el navegador (`SheetJS`) con normalización automática de organismos, duraciones y fechas. Dispone de dos métodos de actualización:
 
+### Método A (Recomendado): Conexión Directa en Vivo a Google Sheets
+Podés vincular el dashboard directamente a tu planilla original en Google Drive para que cualquier cambio o carga nueva se refleje en el tablero automáticamente:
+
+1. **Publicar la planilla:**
+   - En Google Sheets, andá a **Archivo** > **Compartir** > **Publicar en la web**.
+   - En la sección *Vínculo*, seleccioná la hoja de capacitaciones (o *Todo el documento*) y en formato elegí: **Valores separados por comas (.csv)**.
+   - Hacé clic en **Publicar** y copiá el enlace generado.
+2. **Vincular en el proyecto:**
+   - Pegá ese enlace en la variable `GOOGLE_SHEETS_CSV_URL` en [index.html](file:///c:/Users/mfischer/Documents/antigravitiy%20proyectos/dashboard%20capacitaciones/index.html).
+3. **Listo:** Cada vez que alguien abra el dashboard en Vercel o pulse el botón **"🔄 Sincronizar Google Sheets"**, los datos se consultarán en vivo desde Google Drive. Si falla la red o Google no responde, el dashboard recurre automáticamente a los datos de respaldo.
+
+---
+
+### Método B (Respaldo): Carga Manual desde Archivo Local
 1. **Carga reactiva en vivo:**
-   - Cualquier usuario puede hacer clic en **"Actualizar datos"** y seleccionar la planilla oficial (`Planilla_registro capacitaciones 2026.xlsx`).
-   - El sistema normaliza instantáneamente los nombres de los organismos (mediante diccionario de sinónimos), limpia rangos horarios (`"40 hs aprox"` → `40`), extrae cupos y reclasifica las fechas.
-   - Todo el dashboard se actualiza en pantalla de inmediato sin necesidad de recargar la página.
-2. **Persistencia oficial en la nube:**
+   - Hacé clic en **"📂 Adjuntar Excel local"** y seleccioná la planilla oficial (`.xlsx` o `.csv`).
+   - El dashboard normaliza y procesa los datos en el navegador al instante.
+2. **Persistencia oficial en el repositorio:**
    - Al cargar el archivo, aparecerá el botón **"💾 Descargar capacitaciones.json"**.
    - Descargá ese archivo y reemplazalo en la carpeta `data/capacitaciones.json` de este repositorio.
-   - Al hacer `git push` a GitHub, Vercel actualizará la versión online en segundos para todos los usuarios.
+   - Al hacer `git push` a GitHub, Vercel actualizará la copia de respaldo en segundos.
 
 ---
 
