@@ -7,6 +7,13 @@
       "sourceType": "github",
       "skillPath": "plugins/business-analytics/skills/data-storytelling/SKILL.md",
       "computedHash": "ddf010accb6f29bb6c751f216b6423af74d20c025b4188762d25c1e71081af01"
+    },
+    "google-sheets": {
+      "source": "sanjay3290/ai-skills",
+      "commit": "c84255839a1bfaa06d681aa528f9b50d70002afb",
+      "sourceType": "github",
+      "skillPath": "skills/google-sheets/SKILL.md",
+      "computedHash": "2b61da5745c861dd6b0863bd4a85b71297e295590f804da737037c58ab9273fa"
     }
   }
 }
