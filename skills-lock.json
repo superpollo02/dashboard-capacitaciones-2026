@@ -1,6 +1,34 @@
 {
   "version": 2,
   "skills": {
+    "clean-data": {
+      "source": "Aperivue/medsci-skills",
+      "commit": "e0ea3b0be3bf529aa0b94ee5fd8450e78848932c",
+      "sourceType": "github",
+      "skillPath": "skills/clean-data/SKILL.md",
+      "computedHash": "0892bec1b6210675d774097593b1408cee6f87219edceacc7172ece5f3fd0a9e"
+    },
+    "dashboard-creator": {
+      "source": "mhattingpete/claude-skills-marketplace",
+      "commit": "b5b34bcf4c920bb72cee1c391b54a33cb5353c12",
+      "sourceType": "github",
+      "skillPath": "visual-documentation-plugin/skills/dashboard-creator/SKILL.md",
+      "computedHash": "2a9545d005952939d7ab72567eb540d68b783fac6b327777f47f5e462610935c"
+    },
+    "dashboard-design": {
+      "source": "abdiraimov-otabek/dashboard-design-skill",
+      "commit": "463b8fdf62c640180ec1ba731f3616c2319bf68c",
+      "sourceType": "github",
+      "skillPath": "skills/dashboard-design/SKILL.md",
+      "computedHash": "785d12f28f9c16b48a4167676d6485830a647b01e0934a4ce53f0ea14cd7a4b1"
+    },
+    "data-cleaning-and-visualization": {
+      "source": "yushui2022/MathModel-Skill",
+      "commit": "458eb99e293b1c4437ed5e894c691e251151fb3c",
+      "sourceType": "github",
+      "skillPath": "skills/data-cleaning-and-visualization/SKILL.md",
+      "computedHash": "a3672e6bb62035fb12a4e0fbced9966b49d5e5850a746425c81dc2a637d1a6da"
+    },
     "data-storytelling": {
       "source": "wshobson/agents",
       "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
@@ -8,12 +36,33 @@
       "skillPath": "plugins/business-analytics/skills/data-storytelling/SKILL.md",
       "computedHash": "ddf010accb6f29bb6c751f216b6423af74d20c025b4188762d25c1e71081af01"
     },
+    "file-operations": {
+      "source": "mhattingpete/claude-skills-marketplace",
+      "commit": "b5b34bcf4c920bb72cee1c391b54a33cb5353c12",
+      "sourceType": "github",
+      "skillPath": "code-operations-plugin/skills/file-operations/SKILL.md",
+      "computedHash": "e6429d4515bb193bc0ce1b9d536b824db48444b49ad192f3eef90071bad3f4c0"
+    },
     "google-sheets": {
       "source": "sanjay3290/ai-skills",
       "commit": "c84255839a1bfaa06d681aa528f9b50d70002afb",
       "sourceType": "github",
       "skillPath": "skills/google-sheets/SKILL.md",
       "computedHash": "2b61da5745c861dd6b0863bd4a85b71297e295590f804da737037c58ab9273fa"
+    },
+    "multipanel": {
+      "source": "jaechang-hits/SciAgent-Skills",
+      "commit": "65d6ceb875e20b751ffb3a6d8ee19516558789e1",
+      "sourceType": "github",
+      "skillPath": "skills/data-visualization/multipanel/SKILL.md",
+      "computedHash": "a84f4506a076488fe4d21acc203ab39b10656a5c843d51a8c34cac7379004a45"
+    },
+    "statistical-analysis": {
+      "source": "jaechang-hits/SciAgent-Skills",
+      "commit": "65d6ceb875e20b751ffb3a6d8ee19516558789e1",
+      "sourceType": "github",
+      "skillPath": "skills/biostatistics/statistical-analysis/SKILL.md",
+      "computedHash": "4d37bcbc80765d325a14fd0cda5b9660904699de6a73b7a3f9db14f92c3c4010"
     }
   }
 }
